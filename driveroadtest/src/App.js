@@ -13,6 +13,7 @@ import Dashboard from './components/Dashboard';
 import Logout from './components/Logout';
 import ProtectedRoute from './ProtectedRoute';
 import { useEffect, useState } from 'react';
+import 'bootstrap/dist/js/bootstrap.bundle';
 
 function App() {
 

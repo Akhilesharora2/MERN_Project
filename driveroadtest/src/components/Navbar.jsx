@@ -4,14 +4,16 @@ import { NavLink } from 'react-router-dom';
 const Navbar = (props) => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light shadow">
+      <nav className="navbar navbar-expand-lg navbar-light shadow fixed-top py-0 bg-white">
         <div className="container">
 
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <NavLink className="navbar-brand fw-bolder fs-4 mx-auto me-4" to="/"> Drive Road Test </NavLink>
+
+          <div className="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-auto ps-4">
               <li className="nav-item">
                 <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
               </li>
@@ -24,20 +26,19 @@ const Navbar = (props) => {
               <li className="nav-item">
                 <NavLink className="nav-link" to="/contact">Conatct us</NavLink>
               </li>
-              {/* <li className="nav-item dropdown">
+              <li className="nav-item dropdown">
                 <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   License type
                 </NavLink>
-                <ul className="dropdown-menu">
-                  <li><NavLink className="dropdown-item" to="#">G1</NavLink></li>
-                  <li><NavLink className="dropdown-item" to="#">G2</NavLink></li>
-                  <li><NavLink className="dropdown-item" to="#">G</NavLink></li>
+                <ul className="dropdown-menu bg-white">
+                  <li><NavLink className="dropdown-item bg-white text-secondary" to="#">G1</NavLink></li>
+                  <li><NavLink className="dropdown-item bg-white text-secondary" to="#">G2</NavLink></li>
+                  <li><NavLink className="dropdown-item bg-white text-secondary" to="#">G</NavLink></li>
                   <li><hr className="dropdown-divider" /></li>
-                  <li><NavLink className="dropdown-item" to="#">Other licensings</NavLink></li>
+                  <li><NavLink className="dropdown-item bg-white text-secondary" to="#">Other licensings</NavLink></li>
                 </ul>
-              </li> */}
+              </li>
             </ul>
-            <NavLink className="navbar-brand fw-bolder fs-4 mx-auto" to="/"> Drive Road Test </NavLink>
               {props.auth ?
               <>
             <NavLink to="/login" className='btn btn-outline-primary ms-auto px-4 rounded-pill'>

@@ -65,24 +65,24 @@ const Register = () => {
                     <div className="col-md-6 p-5">
                         <h1 className="display-6 fw-bolder mb-5">Register</h1>
                         <form onSubmit={handleSubmit} method="POST">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="name" name="username" value={user.username} onChange={handleInput} />
+                            <div className="mb-3">
+                                <label htmlFor="name" className="form-label">Username</label>
+                                <input type="text" className="form-control" id="name" name="username" value={user.username} onChange={handleInput} />
                             </div>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value={user.email} onChange={handleInput} />
-                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            <div className="mb-3">
+                                <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
+                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value={user.email} onChange={handleInput} />
+                                <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                             </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" name="password" value={user.password} onChange={handleInput} />
+                            <div className="mb-3">
+                                <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+                                <input type="password" className="form-control" id="exampleInputPassword1" name="password" value={user.password} onChange={handleInput} />
                             </div>
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                                <label class="form-check-label" for="exampleCheck1">Terms & Conditions</label>
+                            <div className="mb-3 form-check">
+                                <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                                <label className="form-check-label" htmlFor="exampleCheck1">Terms & Conditions</label>
                             </div>
-                            <button type="submit" class="btn btn-outline-primary rounded-pill mt-4 w-100">Register</button>
+                            <button type="submit" className="btn btn-outline-primary rounded-pill mt-4 w-100">Register</button>
                         </form>
                     </div>
                 </div>
