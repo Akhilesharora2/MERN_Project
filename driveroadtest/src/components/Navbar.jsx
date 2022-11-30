@@ -13,7 +13,23 @@ const Navbar = (props) => {
           <NavLink className="navbar-brand fw-bolder fs-4 mx-auto me-4" to="/"> Drive Road Test </NavLink>
 
           <div className="collapse navbar-collapse " id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-auto ps-4">
+          {props.auth ?
+              <div className='buttons'>
+            <NavLink to="/login" className='btn btn-outline-primary ms-2 px-4 rounded-pill'>
+              <i className="fa  fa-sign-in me-2"></i> Login</NavLink>
+              <NavLink to="/register" className='btn btn-outline-primary ms-2 px-4 rounded-pill'>
+                <i className="fa  fa-user-plus me-2"></i>Register</NavLink>
+                </div>
+                :
+                <div className='buttons'>
+              <NavLink to="/dashboard" className='btn btn-outline-primary ms-2 px-4 rounded-pill'>
+                <i className="fa  fa-user-plus me-2"></i>Dashboard</NavLink>
+              <NavLink to="/logout" className='btn btn-outline-primary ms-2 px-4 rounded-pill'>
+              <i className="fa  fa-sign-out me-2"></i>Logout</NavLink>
+              </div>
+}
+
+            <ul className="navbar-nav">
               <li className="nav-item">
                 <NavLink className="nav-link" aria-current="page" to="/" end>Home</NavLink>
               </li>
@@ -40,21 +56,7 @@ const Navbar = (props) => {
                 </ul>
               </li>
             </ul>
-              {props.auth ?
-              <>
-            <NavLink to="/login" className='btn btn-outline-primary ms-auto px-4 rounded-pill'>
-              <i className="fa  fa-sign-in me-2"></i> Login</NavLink>
-              <NavLink to="/register" className='btn btn-outline-primary ms-2 px-4 rounded-pill'>
-                <i className="fa  fa-user-plus me-2"></i>Register</NavLink>
-                </>
-                :
-                <>
-              <NavLink to="/dashboard" className='btn btn-outline-primary ms-2 px-4 rounded-pill'>
-                <i className="fa  fa-user-plus me-2"></i>Dashboard</NavLink>
-              <NavLink to="/logout" className='btn btn-outline-primary ms-2 px-4 rounded-pill'>
-              <i className="fa  fa-sign-out me-2"></i>Logout</NavLink>
-              </>
-}
+              
             {/* <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
         <button className="btn btn-outline-success" type="submit">Search</button>
