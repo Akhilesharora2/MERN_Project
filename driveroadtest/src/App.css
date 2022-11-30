@@ -1,3 +1,31 @@
+/* Navbar */
+ul li{
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+ul li.dropdown-item{
+  background-color: blue;
+}
+a.active{
+  font-weight: 500;
+}
+ul li a.dropdown-toggle.active{
+  font-weight: 100;
+}
+ ul li:hover{
+  background-color:   rgb(118, 176, 243);
+  /* color: white; */
+}
+ul.dropdown-menu {
+
+}
+ul.dropdown-item li a{
+
+}
+
+
+
 /* Home */
 #home{
     background: rgb(0, 101 , 219);

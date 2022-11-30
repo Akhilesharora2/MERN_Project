@@ -14,6 +14,9 @@ import Logout from './components/Logout';
 import ProtectedRoute from './ProtectedRoute';
 import { useEffect, useState } from 'react';
 import 'bootstrap/dist/js/bootstrap.bundle';
+import G1 from './components/G1';
+import G2 from './components/G2';
+import G from './components/G';
 
 function App() {
 
@@ -59,6 +62,9 @@ function App() {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/services" element={<Services />} />
         <Route exact path="/contact" element={<Contact />} />
+        <Route exact path="/G1" element={<G1 />} />
+        <Route exact path="/G2" element={<G2 />} />
+        <Route exact path="/G" element={<G />} />
         <Route element={<ProtectedRoute auth={auth1} />}>
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} auth={true} />

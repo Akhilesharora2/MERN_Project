@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const Navbar = (props) => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light shadow fixed-top py-0 bg-white">
+      <nav className="navbar navbar-expand-lg navbar-light shadow">
         <div className="container">
 
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +15,7 @@ const Navbar = (props) => {
           <div className="collapse navbar-collapse " id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-auto ps-4">
               <li className="nav-item">
-                <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
+                <NavLink className="nav-link" aria-current="page" to="/" end>Home</NavLink>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/about">About</NavLink>
@@ -30,12 +30,13 @@ const Navbar = (props) => {
                 <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   License type
                 </NavLink>
-                <ul className="dropdown-menu bg-white">
-                  <li><NavLink className="dropdown-item bg-white text-secondary" to="#">G1</NavLink></li>
-                  <li><NavLink className="dropdown-item bg-white text-secondary" to="#">G2</NavLink></li>
-                  <li><NavLink className="dropdown-item bg-white text-secondary" to="#">G</NavLink></li>
-                  <li><hr className="dropdown-divider" /></li>
-                  <li><NavLink className="dropdown-item bg-white text-secondary" to="#">Other licensings</NavLink></li>
+                <ul className="dropdown-menu">
+                  <li><NavLink className="nav-link dropdown-item" to="/G1">G1</NavLink></li>
+                  <li><NavLink className="nav-link dropdown-item" to="/G2">G2</NavLink></li>
+                  <li><NavLink className="nav-link dropdown-item" to="/G">G</NavLink></li>
+                  <li><hr className="dropdown-divider w-100 text-primary" /></li>
+                  {/* <li><NavLink className="nav-link dropdown-item " to="/">Other licensings</NavLink></li> */}
+                  <li><NavLink className="nav-link dropdown-item" to="#">Other licensings</NavLink></li>
                 </ul>
               </li>
             </ul>
