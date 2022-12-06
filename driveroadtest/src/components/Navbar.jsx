@@ -15,16 +15,16 @@ const Navbar = (props) => {
           <div className="collapse navbar-collapse " id="navbarSupportedContent">
           {props.auth ?
               <div className='buttons'>
-            <NavLink to="/login" className='btn btn-outline-primary ms-2 px-4 rounded-pill'>
+            <NavLink to="/login" className='btn btn-outline-primary ms-2 my-2 px-4 rounded-pill'>
               <i className="fa  fa-sign-in me-2"></i> Login</NavLink>
-              <NavLink to="/register" className='btn btn-outline-primary ms-2 px-4 rounded-pill'>
+              <NavLink to="/register" className='btn btn-outline-primary ms-2 my-2 px-4 rounded-pill'>
                 <i className="fa  fa-user-plus me-2"></i>Register</NavLink>
                 </div>
                 :
                 <div className='buttons'>
-              <NavLink to="/dashboard" className='btn btn-outline-primary ms-2 px-4 rounded-pill'>
+              <NavLink to="/dashboard" className='btn btn-outline-primary ms-2 my-2 px-4 rounded-pill'>
                 <i className="fa  fa-user-plus me-2"></i>Dashboard</NavLink>
-              <NavLink to="/logout" className='btn btn-outline-primary ms-2 px-4 rounded-pill'>
+              <NavLink to="/logout" className='btn btn-outline-primary ms-2 my-2 px-4 rounded-pill'>
               <i className="fa  fa-sign-out me-2"></i>Logout</NavLink>
               </div>
 }
@@ -64,6 +64,7 @@ const Navbar = (props) => {
           </div>
         </div>
       </nav>
+      <hr className='nav-end' />
     </div>
   )
 }

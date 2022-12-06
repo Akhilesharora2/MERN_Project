@@ -26,6 +26,19 @@ const Home = () => {
                             </NavLink>
                         </div>
                     </div>
+                    <div className="col-md-4 mt-5 wrapper">
+                        <div className="box-wrap">
+                            <div className="box">
+                                <div className="box1 box-top">AZ/DZ</div>
+                                <div className="box1 box-right">M</div>
+                                <div className="box1 box-left">G2</div>
+                                <div className="box1 box-front">G1</div>
+                                <div className="box1 box-back">G</div>
+                                <div className="box1 box-bottom">B/C</div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
