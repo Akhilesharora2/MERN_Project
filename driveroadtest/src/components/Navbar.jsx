@@ -24,6 +24,9 @@ const Navbar = (props) => {
                 <div className='buttons'>
               <NavLink to="/dashboard" className='btn btn-outline-primary ms-2 my-2 px-4 rounded-pill'>
                 <i className="fa  fa-user-plus me-2"></i>Dashboard</NavLink>
+                {props.admin ===true ?
+              <NavLink to="/adminDashboard" className='btn btn-outline-primary ms-2 my-2 px-4 rounded-pill'>
+                <i className="fa  fa-user-plus me-2"></i>AdminDashboard</NavLink>: ""}
               <NavLink to="/logout" className='btn btn-outline-primary ms-2 my-2 px-4 rounded-pill'>
               <i className="fa  fa-sign-out me-2"></i>Logout</NavLink>
               </div>

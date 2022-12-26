@@ -15,7 +15,9 @@ const port = process.env.PORT;
 //Require Model
 const Users = require('./models/userSchema');
 const Message = require('./models/msgSchema');
+const Admin = require('./models/adminSchema');
 const authenticate = require('./middleware/authenticate');
+const adminAuthenticate = require('./middleware/adminAuthenticate');
 
 // These mehtods are used to get data and cookies from front-end
 app.use(express.json());
@@ -118,6 +120,47 @@ app.get('/logout', (req,res) =>{
  app.get('/auth', authenticate, (req,res)=>{
  
  })
+ //Admin Auth
+ app.get('/adminAuth', adminAuthenticate, (req, res) =>{
+
+ })
+ //Admin User
+app.post('/admin', async (req,res)=>{
+    try {
+        const email = req.body.email;
+        const password = req.body.password;        
+
+        //Find if user exists
+        const admin = await Admin.findOne({email: email});
+            
+        if(admin){
+            //Verify Password
+            const isMatch = await bcryptjs.compare(password, admin.password);
+            
+            if(isMatch){
+                //Generate Token which is defined in user Schema
+                const token = await admin.generateToken();
+                res.cookie("jwt", token, {
+                    // Token Expires in 24 Hours
+                    expires: new Date(Date.now()+ 86400000),
+                    httpOnly: true
+                })
+                if(admin.admin === "Akhilesh"){
+                res.status(200).send("Admin In");
+                }else{
+                    res.status(400).send('Invalid Admin');
+                }
+            }else{
+                res.status(400).send('Invalid Password');
+            }
+        }else{
+            res.status(400).send('Invalid Email');
+        }
+    }catch (error) {
+     res.status(400).send(error);   
+    }
+})
+
 
 // Run Server
 app.listen(port, ()=>{
