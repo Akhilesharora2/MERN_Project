@@ -1,0 +1,153 @@
+/* Navbar */
+nav div .collapse{
+  width: 100%;
+  display: flexbox;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+nav div .collapse .buttons , nav div .collapse .navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  /* display: inline-block; */
+}
+.navbar-nav  ul.dropdown-menu{
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
+}
+
+
+
+ul li{
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0 1rem;
+}
+ul li.dropdown-item{
+  background-color: blue;
+}
+a.active{
+  font-weight: 500;
+}
+ul li a.dropdown-toggle.active{
+  font-weight: 100;
+}
+ ul li:hover{
+  background-color:   rgb(118, 176, 243);
+  /* color: white; */
+}
+
+.nav-end{
+  border: none;
+  height: 6px;
+  background-color: dodgerblue;
+  margin: 0;
+}
+
+/* Home */
+#home{
+    background: rgb(0, 101 , 219);
+    background: linear-gradient(180deg, rgb(0, 101, 219) 50%, rgba(0, 212, 255, 1) 100%);
+    min-height: 500px;
+}
+.HomeButtons{
+  margin-left: 9%;
+}
+.wrapper{
+  overflow-y: visible;
+overflow-x: hidden;
+}
+@media screen and (max-width: 540px) {
+  .box-wrap {
+      /* margin-top: 8rem; */
+      overflow-x: auto;
+}
+}
+.box{
+  width: 70%;
+  height: 100px;
+  transform-style: preserve-3d;
+  animation: rotate 7s infinite linear;
+  margin: 80px;
+}
+.box1{
+  display: flex;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border: 2px solid darkblue;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(45deg) translateZ(-200px) rotateX(15deg);
+  transform-origin: 50% 50% 0;
+  background: linear-gradient(180deg, rgb(0, 101, 219) 50%, rgba(0, 212, 255, 1) 100%);
+}
+.box-front{
+  transform: translateZ(90px);
+}
+.box-back{
+  transform: translateZ(-90px) rotateY(180deg);
+}
+.box-top{
+transform: translateY(-100px) translateY(50px) rotateY(180deg) rotateX(90deg);
+height: inherit;
+}
+.box-bottom{
+  transform: translateY(-100px) translateY(150px) rotateY(180deg) rotateX(90deg);
+  height: inherit;
+}
+.box-right{
+  transform: rotateY(90deg) translateZ(90px);
+}
+.box-left{
+  transform: rotateY(-90deg) translateZ(90px);
+}
+@keyframes rotate{
+  0%{
+    transform: rotateY(0) rotateX(45deg);
+  }
+  25%{
+    transform: rotateY(90deg) rotateX(45deg);
+  }
+  50%{
+    transform: rotateY(180deg) rotateX(45deg);
+  }
+  75%{
+    transform: rotateY(270deg) rotateX(45deg);
+  }
+  100%{
+    transform: rotateY(360deg) rotateX(45deg);
+  }
+} 
+
+/* Services */
+  /*Cards*/
+
+  .card{
+    transition: all 0.5s ease;
+  }
+
+  .card:hover{
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.493);
+  }
+
+  /* Form */
+  .form{
+    background: rgb(0, 101 , 219);
+    background: linear-gradient(90deg, rgb(0, 101, 219) 40%, rgba(0, 212, 255, 1) 100%);    
+  }
+
+  /*Footer */
+#footer{
+  background: rgb(0, 101 , 219);
+    background: linear-gradient(90deg, rgb(0, 101, 219) 40%, rgba(0, 212, 255, 1) 100%);    
+}
+
+.footer_a{
+  list-style-type: none;
+}
+

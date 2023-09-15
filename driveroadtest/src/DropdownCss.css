@@ -1,0 +1,29 @@
+
+.buttons{
+    width: 30%;
+    margin: 1% 1%;
+}
+
+#G1 ul li , #G2 ul li, #G ul li{
+    display: flex;
+    justify-content: left;
+    list-style: none;
+}
+
+#G1 ul li a, #G2 ul li a, #G ul li a{
+    text-decoration: none;
+    padding: inherit;
+    color: black;
+}
+
+.activeTab{
+    background: gainsboro;
+}
+.title{
+display: inline;
+float: left;
+}
+
+.content{
+    display: none !important;
+}
