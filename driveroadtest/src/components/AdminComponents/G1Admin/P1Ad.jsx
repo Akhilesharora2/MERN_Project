@@ -4,12 +4,24 @@ import './AdminStyling.css';
 import { useNavigate } from 'react-router-dom';
 
 const P1Ad = () => {
-  const [Response, setResponse] = useState(""); //This const is sending our id back to find matching doc
-  var newFinal = [];  //This takes updated doc and only update it when submit is clicked
-  const [stmt, setStmt] = useState(false); //This is to check if new statement have been created properly or not
-  const [change, setChange] = useState(false); //This const is to make sure no unchanged data is being send back.(which results in erasing data).
-  const [newelement, setNewelement] = useState([]); //It contains all the docs and sends updated doc back to the database
-  var [newStmt, setNewStmt] = useState([]); //It takes new statement temporarily
+ //This const is sending our id back to find matching doc
+ //It also store the document data(ID)
+  const [Response, setResponse] = useState("");
+ //This store updated statements 
+  //It merges updated statement with the curren one and update it when submit is clicked 
+  var newFinal = [];  
+  //This is to check if new statement have been created properly or not
+  //Flagman for new statements
+  const [stmt, setStmt] = useState(false); 
+   //This const is to make sure no unchanged data is being send back.(which results in erasing data).
+   //Flagman for updates
+  const [change, setChange] = useState(false);
+//It contains all the docs and sends updated doc back to the database
+//Stored P1 specific data only from G1 doc
+  const [newelement, setNewelement] = useState([]); 
+ //It takes new statement temporarily
+ //Adds a new statemtent data
+  var [newStmt, setNewStmt] = useState([]); 
   
   // var [images, setImages] = useState("");
   // const [filename, setFilename] = useState(" "); //Add images
@@ -47,9 +59,9 @@ useEffect(() => {
     }
   }, [stmt])
 
-  const onChangeFile = e => {
-    setFilename(e.target.files[0]);
-  }
+  // const onChangeFile = e => {
+  //   setFilename(e.target.files[0]);
+  // }
 
   const refresh = () =>{
     window.alert("Deleted successfully");

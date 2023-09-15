@@ -10,9 +10,9 @@ const E1Ad = () => {
   const [change, setChange] = useState(false); //This const is to make sure no unchanged data is being send back.(which results in erasing data).
   const [newelement, setNewelement] = useState([]); //It contains all the docs and sends updated doc back to the database
   var [newStmt, setNewStmt] = useState([]); //It takes new statement temporarily
-  var [images, setImages] = useState("");
-  const [filename, setFilename] = useState(" "); //Add images
-  const [filename2, setFilename2] = useState(" "); //update images
+  // var [images, setImages] = useState("");
+  // const [filename, setFilename] = useState(" "); //Add images
+  // const [filename2, setFilename2] = useState(" "); //update images
   const navigate = useNavigate();
   const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -31,10 +31,10 @@ useEffect(() => {
     setResponse(response.data);
     setNewelement(response.data.Exam1);
   });
-  const type = 'E1';
-  Axios.get(`${BASE_URL}/showImages?img=${type}`).then((response) => {
-    setImages(response.data);
-  })
+  // const type = 'E1';
+  // Axios.get(`${BASE_URL}/showImages?img=${type}`).then((response) => {
+  //   setImages(response.data);
+  // })
 }, []);
 
   //When a new statement is created, this function makes sure all data is set to the newelement so that no last letter will left
@@ -46,9 +46,9 @@ useEffect(() => {
     }
   }, [stmt])
 
-  const onChangeFile = e => {
-    setFilename(e.target.files[0]);
-  }
+  // const onChangeFile = e => {
+  //   setFilename(e.target.files[0]);
+  // }
 
   const refresh = () =>{
     window.alert("Deleted successfully");
@@ -144,14 +144,14 @@ useEffect(() => {
 
   //Delete
   const Delete = (id, key) => {
-    const imgId = images[key]._id;
+    // const imgId = images[key]._id;
     const index = key;
     newFinal = newelement;
     newFinal.splice(index, 1)
     // setNewelement(newFinal);
     // setChange(true);
-    const rqst = Axios.delete(`${BASE_URL}/E1/deleteImageDoc?id=${imgId}`);
-    const rqst2 = Axios.put(`${BASE_URL}/E1/imageUpdateMany/` + (key + 1));
+    // const rqst = Axios.delete(`${BASE_URL}/E1/deleteImageDoc?id=${imgId}`);
+    // const rqst2 = Axios.put(`${BASE_URL}/E1/imageUpdateMany/` + (key + 1));
     const rqst3 = Axios.put(`${BASE_URL}/G1Update`, {
       id: id,
       G1Overview: Response.G1Overview,
@@ -162,7 +162,8 @@ useEffect(() => {
       Exam3: Response.Exam3,
       Final: Response.Final
     });
-    Axios.all([rqst, rqst2, rqst3])
+    // Axios.all([rqst, rqst2, rqst3])
+    Axios.all([rqst3])
       .then(
         refresh()
         )
@@ -172,26 +173,26 @@ useEffect(() => {
   }
 
   //Images Update
-  const onUpdateImage = e => {
-    setFilename2(e.target.files[0]);
-  }
+  // const onUpdateImage = e => {
+  //   setFilename2(e.target.files[0]);
+  // }
 
-  const updateImage = (code, event) => {
-    if (filename2 !== " " && event.target.id === "imgUpd") {
-      const formData2 = new FormData();
-      formData2.append("code", event.target.name);
-      formData2.append("stmtImage", filename2);
-      Axios.put(`${BASE_URL}/E1/imageUpdate/` + (event.target.name), formData2)
-        .then(window.location.reload());
-    }
-  }
+  // const updateImage = (code, event) => {
+  //   if (filename2 !== " " && event.target.id === "imgUpd") {
+  //     const formData2 = new FormData();
+  //     formData2.append("code", event.target.name);
+  //     formData2.append("stmtImage", filename2);
+  //     Axios.put(`${BASE_URL}/E1/imageUpdate/` + (event.target.name), formData2)
+  //       .then(window.location.reload());
+  //   }
+  // }
 
   //Delete Images
-  const deleteImages = (code, event) => {
-    Axios.put(`${BASE_URL}/E1/deleteImages/` + (Number(event.target.id)))
-      .then(window.alert('Image Deleted Successfully'))
-      .then(window.location.reload());
-  }
+  // const deleteImages = (code, event) => {
+  //   Axios.put(`${BASE_URL}/E1/deleteImages/` + (Number(event.target.id)))
+  //     .then(window.alert('Image Deleted Successfully'))
+  //     .then(window.location.reload());
+  // }
 
   //make all changes 
   const handleSubmit = (id) => {
@@ -210,17 +211,17 @@ useEffect(() => {
     } else {
       alert("No Changes were made!!");
     }
-    if (stmt) {
-      const formData = new FormData();
-      formData.append("code", newelement.length);
-      if (filename === " ") {
-        //  formData.append("stmtImage" , filename);
-        Axios.post(`${BASE_URL}/E1/imageUploadCode`, { code: newelement.length });
-      } else {
-        formData.append("stmtImage", filename);
-        Axios.post(`${BASE_URL}/E1/imageUpload`, formData);
-      }
-    }
+    // if (stmt) {
+    //   const formData = new FormData();
+    //   formData.append("code", newelement.length);
+    //   if (filename === " ") {
+    //     //  formData.append("stmtImage" , filename);
+    //     Axios.post(`${BASE_URL}/E1/imageUploadCode`, { code: newelement.length });
+    //   } else {
+    //     formData.append("stmtImage", filename);
+    //     Axios.post(`${BASE_URL}/E1/imageUpload`, formData);
+    //   }
+    // }
   }
 
   return (    
@@ -244,7 +245,7 @@ useEffect(() => {
         <option value="C">C</option>
         <option value="D">D</option>
       </select>
-        <h6 className='stmt form-group'>Image: <input type="file" filename="stmtImage" onChange={onChangeFile} className="form-control-file" id="img" /> </h6>
+        {/* <h6 className='stmt form-group'>Image: <input type="file" filename="stmtImage" onChange={onChangeFile} className="form-control-file" id="img" /> </h6> */}
         <button type="submit"> Submit </button>
         <hr />
       </form>
@@ -262,7 +263,7 @@ useEffect(() => {
           return <form onSubmit={() => handleSubmit(Response._id)} method="PUT" key={key}>
             <h6 className='stmt'> <p className='display-4'>{key + 1}:</p> <textarea id={key} type="text" rows="5" cols="30" name="0" placeholder={stmt} onChange={handleChange} /> </h6>
             {/* {`/uploads/${images[key].image}` === " " ? console.log(`/uploads/${images[key].image}`) : console.log(`/uploads/${images[key].image}`)} */}
-            {
+            {/* {
               (images.length) >= (key + 1) ?
                 `/Exam1/${images[key].image}` !== '/Exam1/ ' ?
                   //true if image available
@@ -282,7 +283,7 @@ useEffect(() => {
                     <button type='button' name={key + 1} className='m-2' id='imgUpd' onClick={(event) => updateImage(key + 1, event)} > Update </button>
                   </>
                 : " "
-            }
+            } */}
             <h6 className='stmt'>Option A: <textarea id={key} type="text" rows="3" cols="30" name="1" placeholder={op1} onChange={handleChange} /> </h6>
             <h6 className='stmt'>Option B: <textarea id={key} type="text" rows="3" cols="30" name="2" placeholder={op2} onChange={handleChange} /> </h6>
             <h6 className='stmt'>Option C: <textarea id={key} type="text" rows="3" cols="30" name="3" placeholder={op3} onChange={handleChange} /> </h6>
