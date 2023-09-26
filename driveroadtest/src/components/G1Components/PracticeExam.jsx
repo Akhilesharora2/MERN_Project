@@ -40,11 +40,11 @@ const PracticeExam = () => {
     document.getElementsByName(event.target.name)[1].disabled = true;
     document.getElementsByName(event.target.name)[0].disabled = true;
     document.getElementById(event.target.name).style.display = "block";
-    if (event.target.name === '519') {
-      if (score > 16) {
+    if (event.target.name === '539') {
+      if (score > 32) {
         alert("Congrats, You have successfully cleared this test.");
       } else {
-        alert("Let's review the answers once and try it again.");
+        alert( "You scored: " + score +"/40. " + "Let's review the answers and try it again.");
       }
     }
   }
@@ -68,8 +68,6 @@ const PracticeExam = () => {
               <td id={5070}>8</td>
               <td id={5080}>9</td>
               <td id={5090}>10</td>
-            </tr>
-            <tr>
               <td id={5100}>11</td>
               <td id={5110}>12</td>
               <td id={5120}>13</td>
@@ -81,11 +79,33 @@ const PracticeExam = () => {
               <td id={5180}>19</td>
               <td id={5190}>20</td>
             </tr>
+            <tr>
+              <td id={5200}>21</td>
+              <td id={5210}>22</td>
+              <td id={5220}>23</td>
+              <td id={5230}>24</td>
+              <td id={5240}>25</td>
+              <td id={5250}>26</td>
+              <td id={5260}>27</td>
+              <td id={5270}>28</td>
+              <td id={5280}>29</td>
+              <td id={5290}>30</td>
+              <td id={5300}>31</td>
+              <td id={5310}>32</td>
+              <td id={5320}>33</td>
+              <td id={5330}>34</td>
+              <td id={5340}>35</td>
+              <td id={5350}>36</td>
+              <td id={5360}>37</td>
+              <td id={5370}>38</td>
+              <td id={5380}>39</td>
+              <td id={5390}>40</td>
+            </tr>
             </tbody>
           </table>
         </div>
         <div className="row score">
-          <h6 className='py-2 px-2 '>Score: {score} / 20</h6>
+          <h6 className='py-2 px-2 '>Score: {score} / 40</h6>
         </div>
         <div className="row">
           {
