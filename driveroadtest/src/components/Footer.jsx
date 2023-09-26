@@ -71,7 +71,7 @@ const handleSubmit = async (event) => {
           </div>
           <div className="row"> <hr className='w-100' />
             <div className="col justify-content-center text-center text-white mb-2">
-              © All rights reserved.
+              © 2023 Drive Road Test
             </div>
           </div>
         </div>

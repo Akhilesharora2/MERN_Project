@@ -52,7 +52,7 @@ const G1 = ({ auth }) => {
                                             <li className={toggleTab === "P3" ? "display py-1 activeTab" : "display py-1"}>
                                                 <NavLink onClick={() => tabs('P3')}>Practice Knowledge+Signs Exam</NavLink></li>
                                             <li className={toggleTab === "Final" ? "display py-1 activeTab" : "display py-1"}>
-                                                <NavLink onClick={() => tabs("Final")}>Final Test</NavLink></li>
+                                                <NavLink onClick={() => tabs("Final")}>Finally before you go</NavLink></li>
                                         </>)
                                 }
                             </ul>
