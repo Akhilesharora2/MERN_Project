@@ -1,54 +1,81 @@
-#G1{
+#G1 {
     overflow: hidden;
 }
-.stmtNo{
+
+.stmtNo {
     /* float: left; */
     margin-bottom: 5px;
 }
 
-.StmtImage{
+.StmtImage {
     height: 250px;
     width: 250px;
     /* float: right; */
     /* margin-bottom: 25%; */
 }
 
-.stmt{
+.stmt {
     margin: 2%;
 }
-.row .stmt4{
+
+.row .stmt4 {
     margin: 2%;
     margin-bottom: 9%;
 }
+
 /* Styling for answer popup */
-.ansPopUp input{
+.ansPopUp input {
     display: none;
     width: -webkit-fill-available;
 }
 
-.score{
+/* Styling for table with score */
+
+.tableBar{
+    background: rgba(255, 255, 255, 0.9);
     position: fixed;
-    top: 90%;
-    left: 88%;
+    top: 80%;
+    padding: 15px;
+    box-shadow: 5px;
+}
+.tableBar2{
+    left: 0%;
+}
+.score {
+    margin: 25px 0px 0px 15px;
     background: orange;
     border-radius: 50px;
     color: aliceblue;
+    padding: 0px;
 }
-.table{
+.score2{
+    margin: 25px 0px 0px 170px;
+}
+
+table{
     text-align: center;
-    position: fixed;
-    top: 89%;
-    left: 28%;
-    background: rgb(156, 150, 139, 0.2);
-    color: aliceblue;
+    border-collapse: separate !important;
+    border-spacing: 5px;
+    /* left: 25%; */
     width: 55% !important;
-    /* height: 10% !important; */
-    /* border: 2px solid black; */
-    /* opacity: 0.2; */
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 5px 5px #ece4e4;
+    border-radius: 10px;
 }
-.table table tr td{
-    border: 1px solid black;
-    padding: 0% !important;
+
+table tbody tr {
+    border: hidden;
+    border: 5px hidden;
+    border-radius: 40px;
+}
+
+
+table tbody tr td {
+    border-radius: 80px;
+    background-color: ghostwhite;
+    border: 5px hidden;
+    padding: 6px 12px;
+    cursor: pointer;
 }
 
 .loader-container {
@@ -61,7 +88,8 @@
     background: rgba(0, 0, 0, 0.834);
     z-index: 1;
 }
-.spinner{
+
+.spinner {
     width: 64px;
     height: 64px;
     border: 8px solid;
@@ -69,17 +97,30 @@
     border-radius: 50%;
     animation: spin-anim 1.2s linear infinite;
 }
+
 @keyframes spin-anim {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
 }
 
-@media (max-width: 600px){
-    .table{
-        left: 18%;
+@media (max-width: 600px) {
+    .tableBar{
+        top: 85%;
+        left: -1%;
+    }
+    table {
+        border-collapse: collapse !important;
+    }
+    table tbody tr td {
+        padding: 5px 10px;
+    }
+    .score,
+    .tableBar2{
+        visibility: hidden;
     }
 }

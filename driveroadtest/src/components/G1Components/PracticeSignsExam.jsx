@@ -16,7 +16,7 @@ const PracticeSignsExam = () => {
       setResp(response.data.Exam2);
     });
 
-    const type= 'E2';
+    const type = 'E2';
     Axios.get(`${BASE_URL}/showImages?img=${type}`).then((response) => {
       setImages(response.data);
     })
@@ -39,7 +39,7 @@ const PracticeSignsExam = () => {
     document.getElementsByName(event.target.name)[2].disabled = true;
     document.getElementsByName(event.target.name)[1].disabled = true;
     document.getElementsByName(event.target.name)[0].disabled = true;
-    document.getElementById(event.target.name).style.display="block";
+    document.getElementById(event.target.name).style.display = "block";
     if (event.target.name === '419') {
       if (score > 16) {
         alert("Congrats, You have successfully cleared this test.");
@@ -48,45 +48,12 @@ const PracticeSignsExam = () => {
       }
     }
   }
-  
+
 
   return (
     <div>
       <h6 className='mb-5'>Practice Signs Exam #2</h6>
       <div className="container">
-      <div className="row table">
-          <table>
-            <tbody>
-            <tr>
-              <td id={4000}>1</td>
-              <td id={4010}>2</td>
-              <td id={4020}>3</td>
-              <td id={4030}>4</td>
-              <td id={4040}>5</td>
-              <td id={4050}>6</td>
-              <td id={4060}>7</td>
-              <td id={4070}>8</td>
-              <td id={4080}>9</td>
-              <td id={4090}>10</td>
-            </tr>
-            <tr>
-              <td id={4100}>11</td>
-              <td id={4110}>12</td>
-              <td id={4120}>13</td>
-              <td id={4130}>14</td>
-              <td id={4140}>15</td>
-              <td id={4150}>16</td>
-              <td id={4160}>17</td>
-              <td id={4170}>18</td>
-              <td id={4180}>19</td>
-              <td id={4190}>20</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-        <div className="row score">
-          <h6 className='py-2 px-2 '>Score: {score} / 20</h6>
-        </div>
         <div className="row">
           {
 
@@ -98,13 +65,13 @@ const PracticeSignsExam = () => {
               const op4 = (value.split('/*'))[4];
               const answer = (value.split('/*'))[5];
               return <div key={key}>
-                <h6 className='stmt' id={key+1400}>{key + 1}: {stmt}</h6>
+                <h6 className='stmt' id={key + 1400}>{key + 1}: {stmt}</h6>
                 {
                   (images.length) >= (key + 1) ?
                     `/uploads/${images[key].image}` !== '/uploads/ ' ?
                       //true if image available
                       <>
-                        <img id={key+1400} className='StmtImage' src={`/Exam2/${encodeURI(images[key].image)}`} alt={encodeURI(images[key].image)} />
+                        <img id={key + 1400} className='StmtImage' src={`/Exam2/${encodeURI(images[key].image)}`} alt={encodeURI(images[key].image)} />
                         <br></br>
                       </>
                       :
@@ -115,20 +82,55 @@ const PracticeSignsExam = () => {
                       </>
                     : " "
                 }
-                <h6 className='stmt'> <input type="checkbox" name={key+400} id="A" onChange={(event) => handleOnChange(event)} value={op1} /> A: {op1} </h6>
-                  <h6 className='stmt'> <input type="checkbox" name={key+400} id='B' onChange={(event) => handleOnChange(event)} value={op2} /> B: {op2} </h6>
-                  <h6 className='stmt'> <input type="checkbox" name={key+400} id='C' onChange={(event) => handleOnChange(event)} value={op3} /> C: {op3} </h6>
-                  <h6 className='stmt4'> <input type="checkbox" name={key+400} id='D' onChange={(event) => handleOnChange(event)} value={op4} /> D: {op4} </h6>
-                  <div className="ansPopUp">
-                  { answer.toString() === 'A'? <input type="text" id={key+400} value={"Answer: "+ answer+" " +op1} name={answer} readOnly />: 
-                    answer.toString() === 'B'? <input type="text" id={key+400} value={"Answer: "+ answer+" " +op2} name={answer} readOnly />:
-                    answer.toString() === 'C'? <input type="text" id={key+400} value={"Answer: "+ answer+" " +op3} name={answer} readOnly />:
-                    <input type="text" id={key+400} value={"Answer: "+ answer+" " +op4} name={answer} readOnly />}
-                  
+                <h6 className='stmt'> <input type="checkbox" name={key + 400} id="A" onChange={(event) => handleOnChange(event)} value={op1} /> A: {op1} </h6>
+                <h6 className='stmt'> <input type="checkbox" name={key + 400} id='B' onChange={(event) => handleOnChange(event)} value={op2} /> B: {op2} </h6>
+                <h6 className='stmt'> <input type="checkbox" name={key + 400} id='C' onChange={(event) => handleOnChange(event)} value={op3} /> C: {op3} </h6>
+                <h6 className='stmt4'> <input type="checkbox" name={key + 400} id='D' onChange={(event) => handleOnChange(event)} value={op4} /> D: {op4} </h6>
+                <div className="ansPopUp">
+                  {answer.toString() === 'A' ? <input type="text" id={key + 400} value={"Answer: " + answer + " " + op1} name={answer} readOnly /> :
+                    answer.toString() === 'B' ? <input type="text" id={key + 400} value={"Answer: " + answer + " " + op2} name={answer} readOnly /> :
+                      answer.toString() === 'C' ? <input type="text" id={key + 400} value={"Answer: " + answer + " " + op3} name={answer} readOnly /> :
+                        <input type="text" id={key + 400} value={"Answer: " + answer + " " + op4} name={answer} readOnly />}
+
                 </div>
               </div>
             })
           }
+        </div>
+        <div className="row tableBar">
+          <div className="col-md-9">
+            <table>
+              <tbody>
+                <tr>
+                  <td id={4000}>1</td>
+                  <td id={4010}>2</td>
+                  <td id={4020}>3</td>
+                  <td id={4030}>4</td>
+                  <td id={4040}>5</td>
+                  <td id={4050}>6</td>
+                  <td id={4060}>7</td>
+                  <td id={4070}>8</td>
+                  <td id={4080}>9</td>
+                  <td id={4090}>10</td>
+                </tr>
+                <tr>
+                  <td id={4100}>11</td>
+                  <td id={4110}>12</td>
+                  <td id={4120}>13</td>
+                  <td id={4130}>14</td>
+                  <td id={4140}>15</td>
+                  <td id={4150}>16</td>
+                  <td id={4160}>17</td>
+                  <td id={4170}>18</td>
+                  <td id={4180}>19</td>
+                  <td id={4190}>20</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="col-md-3">
+            <h6 className='py-2 px-2 score'>Score: {score} / 20</h6>
+          </div>
         </div>
       </div>
     </div>

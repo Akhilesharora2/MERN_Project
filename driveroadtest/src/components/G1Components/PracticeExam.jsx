@@ -54,8 +54,53 @@ const PracticeExam = () => {
     <div>
       <h6 className='mb-5'>Practice Exam #3</h6>
       <div className="container">
-      <div className="row table">
-          <table>
+        <div className="row">
+          {
+
+            resp.map((value, key) => {
+              const stmt = (value.split('/*'))[0];
+              const op1 = (value.split('/*'))[1];
+              const op2 = (value.split('/*'))[2];
+              const op3 = (value.split('/*'))[3];
+              const op4 = (value.split('/*'))[4];
+              const answer = (value.split('/*'))[5];
+              return <div key={key}>
+                <h6 className='stmt' id={key + 1500}>{key + 1}: {stmt}</h6>
+                {
+                  (images.length) >= (key + 1) ?
+                    `/uploads/${images[key].image}` !== '/uploads/ ' ?
+                      //true if image available
+                      <>
+                        <img id={key + 1500} className='StmtImage' src={`/Exam3/${encodeURI(images[key].image)}`} alt={encodeURI(images[key].image)} />
+                        <br></br>
+                      </>
+                      :
+                      //If not available
+                      <>
+                        <h6> </h6>
+                        <br></br>
+                      </>
+                    : " "
+                }
+                <h6 className='stmt'> <input type="checkbox" name={key + 500} id="A" onChange={(event) => handleOnChange(event)} value={op1} /> A: {op1} </h6>
+                <h6 className='stmt'> <input type="checkbox" name={key + 500} id='B' onChange={(event) => handleOnChange(event)} value={op2} /> B: {op2} </h6>
+                <h6 className='stmt'> <input type="checkbox" name={key + 500} id='C' onChange={(event) => handleOnChange(event)} value={op3} /> C: {op3} </h6>
+                <h6 className='stmt4'> <input type="checkbox" name={key + 500} id='D' onChange={(event) => handleOnChange(event)} value={op4} /> D: {op4} </h6>
+                <div className="ansPopUp">
+                  {answer.toString() === 'A' ? <input type="text" id={key + 500} value={"Answer: " + answer + " " + op1} name={answer} readOnly /> :
+                    answer.toString() === 'B' ? <input type="text" id={key + 500} value={"Answer: " + answer + " " + op2} name={answer} readOnly /> :
+                      answer.toString() === 'C' ? <input type="text" id={key + 500} value={"Answer: " + answer + " " + op3} name={answer} readOnly /> :
+                        <input type="text" id={key + 500} value={"Answer: " + answer + " " + op4} name={answer} readOnly />}
+
+                </div>
+              </div>
+            })
+          }
+        </div>
+        
+      <div className="row tableBar tableBar2">
+          <div className="col-md-9" style={{zIndex: '1'}}>
+            <table>
             <tbody>
             <tr>
               <td id={5000}>1</td>
@@ -103,54 +148,12 @@ const PracticeExam = () => {
             </tr>
             </tbody>
           </table>
-        </div>
-        <div className="row score">
-          <h6 className='py-2 px-2 '>Score: {score} / 40</h6>
-        </div>
-        <div className="row">
-          {
-
-            resp.map((value, key) => {
-              const stmt = (value.split('/*'))[0];
-              const op1 = (value.split('/*'))[1];
-              const op2 = (value.split('/*'))[2];
-              const op3 = (value.split('/*'))[3];
-              const op4 = (value.split('/*'))[4];
-              const answer = (value.split('/*'))[5];
-              return <div key={key}>
-                <h6 className='stmt' id={key + 1500}>{key + 1}: {stmt}</h6>
-                {
-                  (images.length) >= (key + 1) ?
-                    `/uploads/${images[key].image}` !== '/uploads/ ' ?
-                      //true if image available
-                      <>
-                        <img id={key + 1500} className='StmtImage' src={`/Exam3/${encodeURI(images[key].image)}`} alt={encodeURI(images[key].image)} />
-                        <br></br>
-                      </>
-                      :
-                      //If not available
-                      <>
-                        <h6> </h6>
-                        <br></br>
-                      </>
-                    : " "
-                }
-                <h6 className='stmt'> <input type="checkbox" name={key + 500} id="A" onChange={(event) => handleOnChange(event)} value={op1} /> A: {op1} </h6>
-                <h6 className='stmt'> <input type="checkbox" name={key + 500} id='B' onChange={(event) => handleOnChange(event)} value={op2} /> B: {op2} </h6>
-                <h6 className='stmt'> <input type="checkbox" name={key + 500} id='C' onChange={(event) => handleOnChange(event)} value={op3} /> C: {op3} </h6>
-                <h6 className='stmt4'> <input type="checkbox" name={key + 500} id='D' onChange={(event) => handleOnChange(event)} value={op4} /> D: {op4} </h6>
-                <div className="ansPopUp">
-                  {answer.toString() === 'A' ? <input type="text" id={key + 500} value={"Answer: " + answer + " " + op1} name={answer} readOnly /> :
-                    answer.toString() === 'B' ? <input type="text" id={key + 500} value={"Answer: " + answer + " " + op2} name={answer} readOnly /> :
-                      answer.toString() === 'C' ? <input type="text" id={key + 500} value={"Answer: " + answer + " " + op3} name={answer} readOnly /> :
-                        <input type="text" id={key + 500} value={"Answer: " + answer + " " + op4} name={answer} readOnly />}
-
-                </div>
-              </div>
-            })
-          }
+          </div>
+          <div className="col-md-3">
+          <h6 className='py-2 px-2 score score2'>Score: {score} / 40</h6>
         </div>
       </div>
+    </div>
     </div>
   )
 }
