@@ -5,21 +5,25 @@ import Services from './Services';
 import BookARoadTest from './BookARoadTest';
 import { NavLink } from 'react-router-dom';
 
-const Home = ({auth}) => {
-    useEffect(()=>{
-        if(window.twttr){
+const Home = ({ auth }) => {
+    let sectionId = 0;
+
+    useEffect(() => {
+        if (window.twttr) {
             window.twttr.widgets.load();
         }
-    },[]);
+        
+
+    }, []);
 
     return (
         <div>
             <section id="home">
                 <div className="container-fluid">
                     <div className="row justify-content-center">
-                        <div className="col-md-7 mt-5">
-                            <p className="display-6 mb-4 text-center text-white">
-                                There are millions of licensed drivers in Ontario and every one of them had started by visiting driveTest center and starting with a G1.
+                        <div className="home_1 mt-5">
+                            <p className="mb-4 text-center text-white">
+                                 Practice for Class G1/G2/G License 2023?
                             </p>
                             <p className="lead text-center fs-4 mb-5 text-white">
                                 Jump in by selecting any one of the options below
@@ -30,18 +34,18 @@ const Home = ({auth}) => {
                                 </NavLink>
 
                                 {auth ? (
-                            <NavLink to="/Login" className="btn btn-outline-light rounded-pill px-4 py-2">
-                                Login 
-                            </NavLink>
-                        )
+                                    <NavLink to="/Login" className="btn btn-outline-light rounded-pill px-4 py-2">
+                                        Login
+                                    </NavLink>
+                                )
                                     :
                                     (<NavLink to="/Dashboard" className="btn btn-outline-light rounded-pill px-4 py-2">
-                        Dashboard 
-                    </NavLink>)
+                                        Dashboard
+                                    </NavLink>)
                                 }
                             </div>
                         </div>
-                        <div className="col-md-5 mt-5 wrapper">
+                        <div className="home_2 wrapper">
                             <div className="box-wrap">
                                 <div className="box">
                                     <div className="box1 box-top h4">AZ/DZ</div>
@@ -62,8 +66,8 @@ const Home = ({auth}) => {
             <Services />
             <Contact />
             <div className=' d-flex justify-content-center'>
-                        <a className="twitter-timeline" data-width="660" data-height="513" href="https://twitter.com/ONtransport?ref_src=twsrc%5Etfw">Tweets by ONtransport</a>
-                        </div> 
+                <a className="twitter-timeline" data-width="660" data-height="513" href="https://twitter.com/ONtransport?ref_src=twsrc%5Etfw">Tweets by ONtransport</a>
+            </div>
         </div>
     )
 }

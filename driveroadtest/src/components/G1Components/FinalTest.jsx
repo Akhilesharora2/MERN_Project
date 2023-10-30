@@ -11,10 +11,10 @@ const FinalTest = () => {
             
             <ul>
               <li>All driver-related tests take place at DriveTest Centres across the province.</li><br />
-              <li><h6>Vision Test:</h6><br /> This involves looking into a equipment at the drive test centre. It usually takes few minutes only.</li><br />
-              <li><h6>written Test:</h6>  This determines whether you have a good understanding of rules and traffic signs.</li><br />
+              <li><h6>Vision Test:</h6><br /> There will be a vision test which involves looking into a equipment at the drive test centre. It usually takes few minutes only.</li><br />
+              <li><h6>written Test:</h6> Then you have to complete written test, which determines whether you have a good understanding of rules and traffic signs.</li><br />
               <li><i className='fa fa-arrow-right me-2'></i> There will be MCQ's and it is proctored at Drive test centre to prevent misconduct among takers. </li>
-              <li><i className='fa fa-arrow-right me-2'></i> Available on paper (At All locations) and on computer (at some locations).</li>
+              <li><i className='fa fa-arrow-right me-2'></i> Available on paper (all locations) and on computer (at some locations).</li>
               <li><i className='fa fa-arrow-right me-2'></i> Not timed: You can take all the time you need to finish the test until the office closes.</li>
               <li><i className='fa fa-arrow-right me-2'></i> No Appointment required: Come atleast one hour before the office closes to avoid disappointments.</li>
               <li><i className='fa fa-arrow-right me-2'></i> Marked on the spot, so you will get your results immediately.</li>

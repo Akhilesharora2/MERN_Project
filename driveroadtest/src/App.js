@@ -1,4 +1,5 @@
 import './App.css';
+import './Box.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import BookARoadTest from './components/BookARoadTest';
@@ -24,6 +25,9 @@ import AdminDashboard from './components/AdminDashboard';
 import AdminProtectedRoute from './AdminProtectedRoute';
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import ScrollButton from './components/ScrollButton'; //This func is to create scroll top button
+import { Content, Heading } from './components/Styles';  //ScrollTop CSS and Functionality
 function App() {
 
   //Check if user is logged in?
@@ -125,6 +129,7 @@ console.log(authA,auth);
         <Route exact path="/Resetpassword/Resetpassword/:token" element={<Resetpassword />} />
       </Routes>
       <Footer />
+      <ScrollButton /> 
     </React.Fragment>
   );
 }

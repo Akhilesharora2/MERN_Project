@@ -91,7 +91,7 @@ useEffect(() => {
           default:
             break;
         }
-        return (stmt + "," + op1 + "," + op2 + "," + op3 + "," + op4 + "," + answer);
+        return (stmt + "/*" + op1 + "/*" + op2 + "/*" + op3 + "/*" + op4 + "/*" + answer);
       }
       else {
         return value;
