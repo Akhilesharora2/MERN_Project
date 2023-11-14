@@ -18,7 +18,7 @@ const ForgotPassword = () =>{
         event.preventDefault();
         setLoading(true);
 
-        try{
+        try{   
             const res = await fetch('/forgot-password/forgot-password', {
                 method: "POST",
                 headers:{
