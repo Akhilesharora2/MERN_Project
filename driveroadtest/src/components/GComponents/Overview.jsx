@@ -5,7 +5,7 @@ import Axios from 'axios';
 import '../G1Components/G1CompStyle.css';
 const Overview = () => {
   const [lineBreaker, setLineBreaker] = useState([]);
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
+  const BASE_URL = window.REACT_APP_BASE_URL;
   const [loading, setLoading] = useState(false);
 
   useEffect(()=>{

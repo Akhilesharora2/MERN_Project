@@ -24,7 +24,7 @@ const E1Ad = () => {
   var [newStmt, setNewStmt] = useState([]);
 
   const navigate = useNavigate();
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
+  const BASE_URL = window.REACT_APP_BASE_URL;
 
   //These var's contains New statement and it's all options
   var NS = "";

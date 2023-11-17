@@ -6,10 +6,10 @@ const G1OverviewAd = () => {
   const [Response, setResponse] = useState("");
   const [G1Overview , setG1Overview] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const BASE_URL = window.REACT_APP_BASE_URL;
   useEffect(()=>{
     setLoading(true);
-    Axios.get("http://localhost:3001/G1Data").then((response)=>{
+    Axios.get(`${BASE_URL}/G1Data`).then((response)=>{
       setResponse(response.data);
       setG1Overview(response.data.G1Overview);
     }).then(setLoading(false));
@@ -20,7 +20,7 @@ const G1OverviewAd = () => {
   }
 
 const handleSubmit =  (id) => {
-  Axios.put("http://localhost:3001/G1Update", {
+  Axios.put(`${BASE_URL}/G1Update`, {
     id: id, 
     G1Overview: G1Overview,
     P1: Response.P1,

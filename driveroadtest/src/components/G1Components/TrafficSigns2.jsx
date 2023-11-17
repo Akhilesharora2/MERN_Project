@@ -6,7 +6,7 @@ import './G1CompStyle.css'
 const TrafficSigns2 = () => {
   const [resp, setResp] = useState([]);
   const [images, setImages] = useState("");
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
+  const BASE_URL = window.REACT_APP_BASE_URL;
 
   //When page loads, it retreives the all the data
   useEffect(() => {
@@ -71,8 +71,8 @@ const TrafficSigns2 = () => {
                       <> 
                         { images.map((value,key2) => {
                           if (images[key2].code == (key +1)){
-                            console.log("val:" + value + "  key2:" + key2 + " code:" + images[key2].code + " key1:" + key);
-                            return <img id={key+1200} className='StmtImage' src={`/TrafficSigns/${encodeURI(images[key2].image)}`} alt={encodeURI(images[key].image)} />
+                            // console.log("val:" + value + "  key2:" + key2 + " code:" + images[key2].code + " key1:" + key);
+                            return <img key={key} id={key+1200} className='StmtImage' src={`/TrafficSigns/${encodeURI(images[key2].image)}`} alt={encodeURI(images[key].image)} />
                           }                          
                         }) }
                         {/* <img id={key+1200} className='StmtImage' src={`/TrafficSigns/${encodeURI(images[key].image)}`} alt={encodeURI(images[key].image)} /> */}

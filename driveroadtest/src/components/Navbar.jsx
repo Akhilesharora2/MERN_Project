@@ -13,7 +13,7 @@ const Navbar = (props) => {
 
   return (
     <div style={{ paddingBottom: '60px' }}>
-      <nav className="navbar navbar-expand-lg navbar-light shadow" style={{ position: 'fixed', top: '0px', width: '100%', background: 'rgba(255,255,255,1)', zIndex: '1' }}>
+      <nav className="navbar navbar-expand-lg navbar-light shadow" style={{ position: 'fixed', top: '0px', width: '100%', background: 'rgba(255,255,255,1)', zIndex: '2'}}>
         <div className="container">
 
           {/* //Added onClick={toggleNav} in order to make navbar open/close when an item is clicked in small screens  */}

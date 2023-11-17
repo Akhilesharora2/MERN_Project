@@ -7,7 +7,7 @@ import { Collapse } from 'bootstrap/dist/js/bootstrap.bundle'
 const PracticeKnowledgeExam = () => {
   const [resp, setResp] = useState([]);
   const [score, setScore] = useState(0);
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
+  const BASE_URL = window.REACT_APP_BASE_URL;
 
   //When page loads, it retreives the all the data
   useEffect(() => {
@@ -19,13 +19,11 @@ const PracticeKnowledgeExam = () => {
 
   const handleOnChange = (event) => {
     if ((event.target.id) === (document.getElementById(event.target.name).name)) {
-      console.log('Correct');
       document.getElementById(event.target.name).style.background = "green";
       setScore(1 + score);
       document.getElementById(event.target.name * 10).style.background = "green";
     }
     else {
-      console.log('Incorrect');
       document.getElementById(event.target.name).style.background = "red";
       document.getElementById(event.target.name * 10).style.background = "red";
     }
@@ -45,6 +43,16 @@ const PracticeKnowledgeExam = () => {
     }
   }
 
+  const scrollToStmt= (event) =>{
+    var getId = event.target.id;
+    let last2 = getId.substr(1,2);
+    let scrollInto= "13" + last2;
+    if(last2 != '19'){
+    scrollInto = Number(scrollInto) + 1;
+    }
+    let scrollMargin = document.getElementById(scrollInto);
+    scrollMargin.scrollIntoView({behavior: "smooth", block: "center"});
+  }
 
   return (
     <div>
@@ -62,7 +70,6 @@ const PracticeKnowledgeExam = () => {
               const answer = (value.split('/*'))[5];
               return <div key={key}>
                 <h6 className='stmt' id={key + 1300}>{key + 1}: {stmt}</h6>
-
                 <h6 className='stmt'> <input type="checkbox" name={key + 300} id="A" onChange={(event) => handleOnChange(event)} value={op1} /> A: {op1} </h6>
                 <h6 className='stmt'> <input type="checkbox" name={key + 300} id='B' onChange={(event) => handleOnChange(event)} value={op2} /> B: {op2} </h6>
                 <h6 className='stmt'> <input type="checkbox" name={key + 300} id='C' onChange={(event) => handleOnChange(event)} value={op3} /> C: {op3} </h6>
@@ -80,7 +87,7 @@ const PracticeKnowledgeExam = () => {
         </div>
         <div className="row tableBar">
           <div className="col-md-9">
-            <table>
+            <table onClick={(event) => scrollToStmt(event)}>
               <tbody>
                 <tr>
                   <td id={3000}>1</td>

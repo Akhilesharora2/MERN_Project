@@ -14,10 +14,11 @@
 margin: 15px 5px;
 }
 
-.StmtImage{
+/* There is another class with same name in the G1 components section */
+/* .StmtImage{
     height: 400px;
     width: 80%;
-}
+} */
 
 p.display-4{
     float: left;

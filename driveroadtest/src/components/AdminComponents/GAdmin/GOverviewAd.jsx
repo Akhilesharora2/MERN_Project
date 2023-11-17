@@ -6,7 +6,7 @@ import Axios from 'axios';
 const GOverviewAd = () => {
   const [Response, setResponse] = useState("");
   const [GOverview , setGOverview] = useState("");
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
+  const BASE_URL = window.REACT_APP_BASE_URL;
 
   useEffect(()=>{
     Axios.get(`${BASE_URL}/GData`).then((response)=>{

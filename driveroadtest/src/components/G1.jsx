@@ -24,10 +24,10 @@ const G1 = ({ auth }) => {
     return (
         <div>
             <section id='G1'>
-                <div className="container">
+                <div className="container-fluid">
                     <div className="row">
-                        <div className="col-md-4 my-5">
-                            <ul className='mt-5'>
+                        <div className="col-md-4 my-5 G1Contents">
+                            <ul className='mt-5 me-3'>
                                 <li className={toggleTab === "Overview" ? "display py-1 activeTab" : "display py-1"}>
                                     <NavLink onClick={() => tabs('Overview')}>Overview</NavLink></li>
                                 <li className={toggleTab === "T1" ? "display py-1 activeTab" : "display py-1"}>

@@ -28,6 +28,8 @@ import ReactDOM from 'react-dom';
 
 import ScrollButton from './components/ScrollButton'; //This func is to create scroll top button
 import { Content, Heading } from './components/Styles';  //ScrollTop CSS and Functionality
+
+
 function App() {
 
   //Check if user is logged in?
@@ -94,7 +96,7 @@ function App() {
   //while user is logged in so I had to use a callback function which makes sure 
   //SetState is in place.
   useEffect(() =>{
-console.log(authA,auth);
+// console.log(authA,auth);
   },[authA , auth])
 
   return (

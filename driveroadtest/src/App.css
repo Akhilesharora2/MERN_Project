@@ -25,9 +25,9 @@ nav div .collapse .navbar-nav {
 
 
 ul li {
+  align-items: stretch;
   display: flex;
   justify-content: center;
-  align-items: stretch;
   padding: 0 1rem;
 }
 

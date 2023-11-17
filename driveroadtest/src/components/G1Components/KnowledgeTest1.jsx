@@ -8,7 +8,7 @@ const KnowledgeTest1 = () => {
   //It contains the statement/options/Answer in a single line sepetated by '*/'
   const [resp, setResp] = useState([]);
 
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
+  const BASE_URL = window.REACT_APP_BASE_URL;
 
   //When page loads, it retreives the all the data
   useEffect(() => {

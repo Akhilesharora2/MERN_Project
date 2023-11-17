@@ -7,7 +7,7 @@ const PracticeExam = () => {
   const [resp, setResp] = useState([]);
   const [images, setImages] = useState("");
   const [score, setScore] = useState(0);
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
+  const BASE_URL = window.REACT_APP_BASE_URL;
 
   //When page loads, it retreives the all the data
   useEffect(() => {
@@ -49,6 +49,14 @@ const PracticeExam = () => {
     }
   }
   
+
+  const scrollToStmt= (event) =>{
+    var getId = event.target.id;
+    let last2 = getId.substr(1,2);
+    let scrollInto= "15" + last2;
+    let scrollMargin = document.getElementById(scrollInto);
+    scrollMargin.scrollIntoView({behavior: "smooth", block: "center"});
+  }
 
   return (
     <div>
@@ -100,7 +108,7 @@ const PracticeExam = () => {
         
       <div className="row tableBar tableBar2">
           <div className="col-md-9" style={{zIndex: '1'}}>
-            <table>
+          <table onClick={(event) => scrollToStmt(event)}>
             <tbody>
             <tr>
               <td id={5000}>1</td>

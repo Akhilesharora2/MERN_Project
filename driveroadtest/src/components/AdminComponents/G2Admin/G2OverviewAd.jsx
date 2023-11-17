@@ -6,7 +6,7 @@ import Axios from 'axios';
 const G2OverviewAd = () => {
   const [Response, setResponse] = useState("");
   const [G2Overview , setG2Overview] = useState("");
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
+  const BASE_URL = window.REACT_APP_BASE_URL;
 
   useEffect(()=>{
     Axios.get(`${BASE_URL}/G2Data`).then((response)=>{
