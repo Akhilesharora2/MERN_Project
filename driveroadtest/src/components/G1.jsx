@@ -12,6 +12,7 @@ import FinalTest from './G1Components/FinalTest';
 const G1 = ({ auth }) => {
 
     const [toggleTab, setToggleTab] = useState('Overview');
+    const [overlayMenu, setOverlayMenu] = useState(true);
 
     const tabs = (name) => {
         setToggleTab(name);
@@ -21,13 +22,37 @@ const G1 = ({ auth }) => {
         alert('Login Required to access!');
     }
 
+    /* Open when someone clicks on the span element */
+    const openNav = () => {
+        document.getElementById("myNav").style.height = "100%";
+    }
+
+    /* Close when someone clicks on the "x" symbol inside the overlay */
+    const closeNav = () => {
+        document.getElementById("myNav").style.height = "5%";
+    }
+
+    const navSwitch = (val) =>{
+        setOverlayMenu(val);
+        if(val){
+            document.getElementById("myNav").style.height = "5%";
+        }else{
+            document.getElementById("myNav").style.height = "100%";
+        }
+    }
     return (
         <div>
             <section id='G1'>
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-md-4 my-5 G1Contents">
-                            <ul className='mt-5 me-3'>
+                        <div className="col-md-4 my-5 G1Contents" id='myNav'>
+
+                            {/* <!-- Button to close the overlay navigation --> */}
+                            <NavLink href="javascript:void(0)" className={overlayMenu ?"closebtn hidebtn": "closebtn showbtn"} id="closebtn" onClick={() =>navSwitch(true)}>&times;</NavLink>
+
+                            <NavLink href="javascript:void(0)" className={overlayMenu ? "openbtn showbtn": "openbtn hidebtn"} id="openbtn" onClick={()=>navSwitch(false)}>&#9776; open</NavLink>
+
+                            <ul className='mt-5 me-3 G1ContentsList'>
                                 <li className={toggleTab === "Overview" ? "display py-1 activeTab" : "display py-1"}>
                                     <NavLink onClick={() => tabs('Overview')}>Overview</NavLink></li>
                                 <li className={toggleTab === "T1" ? "display py-1 activeTab" : "display py-1"}>
