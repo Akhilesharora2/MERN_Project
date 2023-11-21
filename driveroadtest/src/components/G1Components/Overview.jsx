@@ -15,7 +15,7 @@ const Overview = () => {
       setLineBreaker((response.data.G1Overview).split('/*'))
     }).then(setLoading(false));
   }, []);
-
+ 
   return (
     <section id="Overview">
       <div className='h6'>Overview</div>
