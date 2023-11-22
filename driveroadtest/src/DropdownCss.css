@@ -31,6 +31,9 @@ float: left;
 .G1Contents .openbtn , .G1Contents .closebtn{
     visibility: hidden;
   }
+  .G1Contents ul{
+    position: fixed;
+  }
 }
 
 @media screen and (max-width: 420px){

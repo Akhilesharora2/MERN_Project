@@ -10,6 +10,7 @@ const G2 = ({auth}) => {
 
     const tabs = (name) => {
         setToggleTab(name);
+        navSwitch(!overlayMenu);
     }
 
     const navSwitch = (val) =>{

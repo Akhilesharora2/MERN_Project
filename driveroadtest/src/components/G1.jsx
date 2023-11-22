@@ -16,6 +16,7 @@ const G1 = ({ auth }) => {
 
     const tabs = (name) => {
         setToggleTab(name);
+        navSwitch(!overlayMenu);
     }
 
     const LoginRequired = () => {
