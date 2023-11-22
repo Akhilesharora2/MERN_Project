@@ -6,36 +6,40 @@ const Footer = () => {
 
   const handleChange = (event) => {
     setSubscriber(event.target.value);
-}
-const handleSubmit = async (event) => {
-  event.preventDefault();
+  }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (subscriber === "") {
+      window.alert("Please fill in the required email field to subscribe!!");
+    } else {
 
-  try {
-      //It is submitted on PORT 3000
-      // Which is Front end but we need to 
-      // Submit it on back end which is PORT 3001.
-      // So we need Proxy
-      const res = await fetch('/subscribe', {
+      try {
+        //It is submitted on PORT 3000
+        // Which is Front end but we need to 
+        // Submit it on back end which is PORT 3001.
+        // So we need Proxy
+        const res = await fetch('/subscribe', {
           method: "POST",
           headers: {
-              "content-type": "application/json"
+            "content-type": "application/json"
           },
           body: JSON.stringify({
-              subscriber
+            subscriber
           })
-      })
-      if(res.status === 400 || !res){
+        })
+        if (res.status === 400 || !res) {
           window.alert("Looks like you have already been registered.")
-      }else{
+        } else {
           //You need to restart the server to work with Proxy.
           document.getElementById("newsletter").value = "You are a subscriber now.";
           setSubscriber("  ");
-          window.alert("Subscription Success");                        
+          window.alert("Subscription Success");
+        }
+      } catch (error) {
+        console.log(error);
       }
-  } catch (error) {
-      console.log(error);
+    }
   }
-}
 
 
   return (
@@ -60,7 +64,7 @@ const handleSubmit = async (event) => {
               <form onSubmit={handleSubmit} method="POST">
                 <div className='input-group'>
                   <input id="newsletter" className='form-control input-sm rounded-pill' type="email" placeholder='Enter your email...' name="name" value={subscriber.value} onChange={handleChange} />
-                  <button className="btn btn-primary rounded-pill border-primary px-2 mx-2">Submit</button>
+                  <button className="btn btn-primary rounded-pill border-primary px-2 mx-2" style={{ "zIndex": "0" }}>Submit</button>
                 </div>
               </form>
               {/* <a href="#"> <i className="fa fa-twitter mx-2 px- 5 my-2 py-5 text-info"></i> </a>

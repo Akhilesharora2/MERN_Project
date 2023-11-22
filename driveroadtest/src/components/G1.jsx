@@ -22,16 +22,6 @@ const G1 = ({ auth }) => {
         alert('Login Required to access!');
     }
 
-    /* Open when someone clicks on the span element */
-    const openNav = () => {
-        document.getElementById("myNav").style.height = "100%";
-    }
-
-    /* Close when someone clicks on the "x" symbol inside the overlay */
-    const closeNav = () => {
-        document.getElementById("myNav").style.height = "5%";
-    }
-
     const navSwitch = (val) =>{
         setOverlayMenu(val);
         if(val){
